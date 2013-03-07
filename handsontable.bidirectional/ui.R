@@ -1,5 +1,4 @@
 library(shiny)
-library(shinyIncubator)
 
 
 spreadsheetInput <- function(inputId){
