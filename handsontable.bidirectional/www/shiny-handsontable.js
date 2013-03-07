@@ -1,5 +1,3 @@
-
-
 var tableInputBinding = new Shiny.InputBinding();
   $.extend(tableInputBinding, {
     find: function(scope) {
@@ -32,14 +30,16 @@ var tableOutputBinding = new Shiny.OutputBinding();
         data: JSON.parse(data),
         startRows: 5,
         startCols: 5,
-        minSpareCols: 1,
+        //minSpareCols: 1,
         //always keep at least 1 spare row at the right
-        minSpareRows: 1,
+        //minSpareRows: 1,
         //always keep at least 1 spare row at the bottom,
+        autoWrapRow: true,
         rowHeaders: true,
         colHeaders: true,
-        contextMenu: true
+        contextMenu: true,
+        onChange: function() { $(el).trigger('change');}
       });
-  	}
+    }
   });
 Shiny.outputBindings.register(tableOutputBinding, "handsonTable-output");
